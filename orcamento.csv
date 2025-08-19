@@ -1,0 +1,12 @@
+type, descriptions, value
+input, "Mesada", 1500
+input, "Bolsa", 700
+output, "Aluguel + Condomínio", 800
+output, "Supermercado", 500
+output, "Transporte", 200
+output, "Luz", 100
+output, "Bandeco", 80
+output, "Internet", 120
+output, "Farmácia", 100
+output, "Lazer", 100
+output, "Tigrinho", 50
