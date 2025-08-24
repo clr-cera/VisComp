@@ -1,0 +1,250 @@
+ISO3,Country,Continent
+ABW,Aruba,Other/Unknown
+AFG,Afghanistan,Other/Unknown
+AGO,Angola,Other/Unknown
+AIA,Anguilla,Other/Unknown
+ALA,Åland Islands,Other/Unknown
+ALB,Albania,Europe
+AND,Andorra,Other/Unknown
+ARE,United Arab Emirates,Other/Unknown
+ARG,Argentina,South America
+ARM,Armenia,Other/Unknown
+ASM,American Samoa,Other/Unknown
+ATA,Antarctica,Other/Unknown
+ATF,French Southern Territories,Other/Unknown
+ATG,Antigua and Barbuda,Other/Unknown
+AUS,Australia,Oceania
+AUT,Austria,Europe
+AZE,Azerbaijan,Other/Unknown
+BDI,Burundi,Other/Unknown
+BEL,Belgium,Europe
+BEN,Benin,Other/Unknown
+BES,"Bonaire, Sint Eustatius and Saba",Other/Unknown
+BFA,Burkina Faso,Other/Unknown
+BGD,Bangladesh,Asia
+BGR,Bulgaria,Europe
+BHR,Bahrain,Other/Unknown
+BHS,Bahamas,Other/Unknown
+BIH,Bosnia and Herzegovina,Europe
+BLM,Saint Barthélemy,Other/Unknown
+BLR,Belarus,Other/Unknown
+BLZ,Belize,North America
+BMU,Bermuda,Other/Unknown
+BOL,"Bolivia, Plurinational State of",South America
+BRA,Brazil,South America
+BRB,Barbados,Other/Unknown
+BRN,Brunei Darussalam,Other/Unknown
+BTN,Bhutan,Other/Unknown
+BVT,Bouvet Island,Other/Unknown
+BWA,Botswana,Other/Unknown
+CAF,Central African Republic,Other/Unknown
+CAN,Canada,North America
+CCK,Cocos (Keeling) Islands,Other/Unknown
+CHE,Switzerland,Europe
+CHL,Chile,South America
+CHN,China,Asia
+CIV,Côte d'Ivoire,Africa
+CMR,Cameroon,Other/Unknown
+COD,"Congo, The Democratic Republic of the",Other/Unknown
+COG,Congo,Other/Unknown
+COK,Cook Islands,Other/Unknown
+COL,Colombia,South America
+COM,Comoros,Other/Unknown
+CPV,Cabo Verde,Other/Unknown
+CRI,Costa Rica,North America
+CUB,Cuba,North America
+CUW,Curaçao,Other/Unknown
+CXR,Christmas Island,Other/Unknown
+CYM,Cayman Islands,Other/Unknown
+CYP,Cyprus,Other/Unknown
+CZE,Czechia,Europe
+DEU,Germany,Europe
+DJI,Djibouti,Other/Unknown
+DMA,Dominica,Other/Unknown
+DNK,Denmark,Europe
+DOM,Dominican Republic,North America
+DZA,Algeria,Africa
+ECU,Ecuador,South America
+EGY,Egypt,Africa
+ERI,Eritrea,Other/Unknown
+ESH,Western Sahara,Other/Unknown
+ESP,Spain,Europe
+EST,Estonia,Other/Unknown
+ETH,Ethiopia,Africa
+FIN,Finland,Europe
+FJI,Fiji,Oceania
+FLK,Falkland Islands (Malvinas),Other/Unknown
+FRA,France,Europe
+FRO,Faroe Islands,Other/Unknown
+FSM,"Micronesia, Federated States of",Other/Unknown
+GAB,Gabon,Other/Unknown
+GBR,United Kingdom,Europe
+GEO,Georgia,Other/Unknown
+GGY,Guernsey,Other/Unknown
+GHA,Ghana,Africa
+GIB,Gibraltar,Other/Unknown
+GIN,Guinea,Other/Unknown
+GLP,Guadeloupe,Other/Unknown
+GMB,Gambia,Other/Unknown
+GNB,Guinea-Bissau,Other/Unknown
+GNQ,Equatorial Guinea,Other/Unknown
+GRC,Greece,Europe
+GRD,Grenada,Other/Unknown
+GRL,Greenland,Other/Unknown
+GTM,Guatemala,North America
+GUF,French Guiana,Other/Unknown
+GUM,Guam,Other/Unknown
+GUY,Guyana,South America
+HKG,Hong Kong,Other/Unknown
+HMD,Heard Island and McDonald Islands,Other/Unknown
+HND,Honduras,North America
+HRV,Croatia,Europe
+HTI,Haiti,North America
+HUN,Hungary,Europe
+IDN,Indonesia,Asia
+IMN,Isle of Man,Other/Unknown
+IND,India,Asia
+IOT,British Indian Ocean Territory,Other/Unknown
+IRL,Ireland,Europe
+IRN,"Iran, Islamic Republic of",Other/Unknown
+IRQ,Iraq,Other/Unknown
+ISL,Iceland,Europe
+ISR,Israel,Other/Unknown
+ITA,Italy,Europe
+JAM,Jamaica,North America
+JEY,Jersey,Other/Unknown
+JOR,Jordan,Other/Unknown
+JPN,Japan,Asia
+KAZ,Kazakhstan,Other/Unknown
+KEN,Kenya,Africa
+KGZ,Kyrgyzstan,Other/Unknown
+KHM,Cambodia,Asia
+KIR,Kiribati,Other/Unknown
+KNA,Saint Kitts and Nevis,Other/Unknown
+KOR,"Korea, Republic of",Asia
+KWT,Kuwait,Other/Unknown
+LAO,Lao People's Democratic Republic,Asia
+LBN,Lebanon,Other/Unknown
+LBR,Liberia,Other/Unknown
+LBY,Libya,Other/Unknown
+LCA,Saint Lucia,Other/Unknown
+LIE,Liechtenstein,Other/Unknown
+LKA,Sri Lanka,Asia
+LSO,Lesotho,Other/Unknown
+LTU,Lithuania,Other/Unknown
+LUX,Luxembourg,Other/Unknown
+LVA,Latvia,Other/Unknown
+MAC,Macao,Other/Unknown
+MAF,Saint Martin (French part),Other/Unknown
+MAR,Morocco,Africa
+MCO,Monaco,Other/Unknown
+MDA,"Moldova, Republic of",Other/Unknown
+MDG,Madagascar,Other/Unknown
+MDV,Maldives,Other/Unknown
+MEX,Mexico,North America
+MHL,Marshall Islands,Other/Unknown
+MKD,North Macedonia,Europe
+MLI,Mali,Other/Unknown
+MLT,Malta,Other/Unknown
+MMR,Myanmar,Asia
+MNE,Montenegro,Europe
+MNG,Mongolia,Asia
+MNP,Northern Mariana Islands,Other/Unknown
+MOZ,Mozambique,Other/Unknown
+MRT,Mauritania,Other/Unknown
+MSR,Montserrat,Other/Unknown
+MTQ,Martinique,Other/Unknown
+MUS,Mauritius,Other/Unknown
+MWI,Malawi,Other/Unknown
+MYS,Malaysia,Asia
+MYT,Mayotte,Other/Unknown
+NAM,Namibia,Other/Unknown
+NCL,New Caledonia,Other/Unknown
+NER,Niger,Other/Unknown
+NFK,Norfolk Island,Other/Unknown
+NGA,Nigeria,Africa
+NIC,Nicaragua,North America
+NIU,Niue,Other/Unknown
+NLD,Netherlands,Europe
+NOR,Norway,Europe
+NPL,Nepal,Asia
+NRU,Nauru,Other/Unknown
+NZL,New Zealand,Oceania
+OMN,Oman,Other/Unknown
+PAK,Pakistan,Asia
+PAN,Panama,North America
+PCN,Pitcairn,Other/Unknown
+PER,Peru,South America
+PHL,Philippines,Asia
+PLW,Palau,Other/Unknown
+PNG,Papua New Guinea,Oceania
+POL,Poland,Europe
+PRI,Puerto Rico,Other/Unknown
+PRK,"Korea, Democratic People's Republic of",Other/Unknown
+PRT,Portugal,Europe
+PRY,Paraguay,South America
+PSE,"Palestine, State of",Other/Unknown
+PYF,French Polynesia,Other/Unknown
+QAT,Qatar,Other/Unknown
+REU,Réunion,Other/Unknown
+ROU,Romania,Europe
+RUS,Russian Federation,Europe
+RWA,Rwanda,Other/Unknown
+SAU,Saudi Arabia,Other/Unknown
+SDN,Sudan,Africa
+SEN,Senegal,Africa
+SGP,Singapore,Asia
+SGS,South Georgia and the South Sandwich Islands,Other/Unknown
+SHN,"Saint Helena, Ascension and Tristan da Cunha",Other/Unknown
+SJM,Svalbard and Jan Mayen,Other/Unknown
+SLB,Solomon Islands,Oceania
+SLE,Sierra Leone,Other/Unknown
+SLV,El Salvador,North America
+SMR,San Marino,Other/Unknown
+SOM,Somalia,Other/Unknown
+SPM,Saint Pierre and Miquelon,Other/Unknown
+SRB,Serbia,Europe
+SSD,South Sudan,Other/Unknown
+STP,Sao Tome and Principe,Other/Unknown
+SUR,Suriname,South America
+SVK,Slovakia,Europe
+SVN,Slovenia,Other/Unknown
+SWE,Sweden,Europe
+SWZ,Eswatini,Other/Unknown
+SXM,Sint Maarten (Dutch part),Other/Unknown
+SYC,Seychelles,Other/Unknown
+SYR,Syrian Arab Republic,Other/Unknown
+TCA,Turks and Caicos Islands,Other/Unknown
+TCD,Chad,Other/Unknown
+TGO,Togo,Other/Unknown
+THA,Thailand,Asia
+TJK,Tajikistan,Other/Unknown
+TKL,Tokelau,Other/Unknown
+TKM,Turkmenistan,Other/Unknown
+TLS,Timor-Leste,Other/Unknown
+TON,Tonga,Other/Unknown
+TTO,Trinidad and Tobago,Other/Unknown
+TUN,Tunisia,Africa
+TUR,Turkey,Europe
+TUV,Tuvalu,Other/Unknown
+TWN,"Taiwan, Province of China",Other/Unknown
+TZA,"Tanzania, United Republic of",Africa
+UGA,Uganda,Africa
+UKR,Ukraine,Europe
+UMI,United States Minor Outlying Islands,Other/Unknown
+URY,Uruguay,South America
+USA,United States,North America
+UZB,Uzbekistan,Other/Unknown
+VAT,Holy See (Vatican City State),Other/Unknown
+VCT,Saint Vincent and the Grenadines,Other/Unknown
+VEN,"Venezuela, Bolivarian Republic of",South America
+VGB,"Virgin Islands, British",Other/Unknown
+VIR,"Virgin Islands, U.S.",Other/Unknown
+VNM,Viet Nam,Asia
+VUT,Vanuatu,Oceania
+WLF,Wallis and Futuna,Other/Unknown
+WSM,Samoa,Other/Unknown
+YEM,Yemen,Other/Unknown
+ZAF,South Africa,Africa
+ZMB,Zambia,Other/Unknown
+ZWE,Zimbabwe,Other/Unknown
