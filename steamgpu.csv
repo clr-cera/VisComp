@@ -1,0 +1,20 @@
+,Source,Target,Value
+0,All,NVIDIA,69.0
+1,All,AMD,14.000000000000002
+2,All,Intel,6.0
+3,All,Unknown,11.0
+4,NVIDIA,NVIDIA GeForce RTX 3060,4.0
+5,NVIDIA,NVIDIA GeForce RTX 4060 Laptop GPU,4.0
+6,NVIDIA,NVIDIA GeForce RTX 4060,4.0
+7,NVIDIA,NVIDIA GeForce GTX 1650,3.0
+8,NVIDIA,NVIDIA GeForce RTX 3050,3.0
+9,AMD,AMD Radeon Graphics,2.0
+10,AMD,AMD Radeon(TM) Graphics,2.0
+11,AMD,AMD Radeon RX 6600,1.0
+12,AMD,AMD Radeon RX 580,1.0
+13,AMD,AMD Radeon RX 5700 XT,1.0
+14,Intel,Intel Iris Xe Graphics,2.0
+15,Intel,Intel(R) UHD Graphics,2.0
+16,Intel,Intel UHD Graphics 620,0.0
+17,Intel,Intel UHD Graphics 630,0.0
+18,Intel,Intel(R) Arc(TM) Graphics,0.0
