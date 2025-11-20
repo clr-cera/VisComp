@@ -244,7 +244,6 @@ def class_dependencies_network(dependencies_df,edge_list):
     G = nx.from_pandas_edgelist(edge_list, 'source', 'target', ['weight'])
     pos = nx.spring_layout(G, k=0.15, iterations=40, seed=42)
     
-    # Create edge annotations with arrows
     edge_annotations = []
     for edge in G.edges():
         x0, y0 = pos[edge[0]]
@@ -272,21 +271,41 @@ def class_dependencies_network(dependencies_df,edge_list):
 
     node_x = []
     node_y = []
-    node_text = [] # For hover information
+    node_text = []
+    node_types = []
+    node_semesters = []
+    
     for node in G.nodes():
         x, y = pos[node]
         node_x.append(x)
         node_y.append(y)
+        
         # Get hover text information from dependencies_df
         hover_info = dependencies_df[dependencies_df['Code'] == node]
         hover_text = f"Código: {node}<br>"
+        
         if not hover_info.empty:
-            objetivo = hover_info.iloc[0]['Goal']
-            objetivo = '<br>'.join(objetivo[i:i+80] for i in range(0, len(objetivo), 80))
             hover_text += f"Nome: {hover_info.iloc[0]['Subject']}<br>"
             hover_text += f"Tipo: {hover_info.iloc[0]['Type']}<br>"
-            hover_text += f"Objetivo: {objetivo}<br>"
+            hover_text += f"Semestre: {hover_info.iloc[0]['Semester']}<br>"
+            node_types.append(hover_info.iloc[0]['Type'])
+            node_semesters.append(hover_info.iloc[0]['Semester'])
+        else:
+            node_types.append('Unknown')
+            node_semesters.append('Unknown')
+        
         node_text.append(hover_text)
+    
+    unique_types = list(set(node_types))
+    type_color_map = {t: px.colors.qualitative.Plotly[i % len(px.colors.qualitative.Plotly)] 
+                      for i, t in enumerate(unique_types)}
+    type_colors = [type_color_map[t] for t in node_types]
+    
+    # For Semester
+    unique_semesters = sorted(list(set(node_semesters)))
+    semester_color_map = {s: px.colors.qualitative.Safe[i % len(px.colors.qualitative.Safe)] 
+                          for i, s in enumerate(unique_semesters)}
+    semester_colors = [semester_color_map[s] for s in node_semesters]
 
     node_trace = go.Scatter(
         x=node_x, y=node_y,
@@ -296,8 +315,9 @@ def class_dependencies_network(dependencies_df,edge_list):
         marker=dict(
             showscale=False,
             size=10,
-            color='skyblue',
+            color=type_colors,
             line_width=2))
+    
     fig = go.Figure(data=[edge_trace, node_trace],
                     layout=go.Layout(
                         title='Grafo de Dependência de Disciplinas',
@@ -308,4 +328,33 @@ def class_dependencies_network(dependencies_df,edge_list):
                         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                     )
+    
+    # Botões
+    fig.update_layout(
+        updatemenus=[
+            dict(
+                type="buttons",
+                showactive=False,
+                direction="left",
+                buttons=list([
+                    dict(
+                        args=[{"marker.color": [type_colors]}],
+                        label="Por Tipo",
+                        method="restyle",
+                    ),
+                    dict(
+                        args=[{"marker.color": [semester_colors]}],
+                        label="Por Semestre",
+                        method="restyle",
+                    )
+                ]),
+                pad={"r": 10, "t": 10},
+                x=0.0,
+                xanchor="left",
+                y=-0.15,
+                yanchor="bottom"
+            ),
+        ]
+    )
+    
     return fig
