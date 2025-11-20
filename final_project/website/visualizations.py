@@ -242,7 +242,7 @@ def department_contribution_to_average(grades_with_students, students):
 
 def class_dependencies_network(dependencies_df,edge_list):
     G = nx.from_pandas_edgelist(edge_list, 'source', 'target', ['weight'])
-    pos = nx.spring_layout(G, k=0.15, iterations=35)
+    pos = nx.spring_layout(G, k=0.15, iterations=40, seed=42)
     edge_x = []
     edge_y = []
     for edge in G.edges():
@@ -272,9 +272,11 @@ def class_dependencies_network(dependencies_df,edge_list):
         hover_info = dependencies_df[dependencies_df['Code'] == node]
         hover_text = f"Código: {node}<br>"
         if not hover_info.empty:
+            objetivo = hover_info.iloc[0]['Goal']
+            objetivo = '<br>'.join(objetivo[i:i+80] for i in range(0, len(objetivo), 80))
             hover_text += f"Nome: {hover_info.iloc[0]['Subject']}<br>"
             hover_text += f"Tipo: {hover_info.iloc[0]['Type']}<br>"
-            hover_text += f"Objetivo: {hover_info.iloc[0]['Goal']}<br>"
+            hover_text += f"Objetivo: {objetivo}<br>"
         node_text.append(hover_text)
 
     node_trace = go.Scatter(
