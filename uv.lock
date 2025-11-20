@@ -794,6 +794,15 @@ wheels = [
 ]
 
 [[package]]
+name = "networkx"
+version = "3.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6c/4f/ccdb8ad3a38e583f214547fd2f7ff1fc160c43a75af88e6aec213404b96a/networkx-3.5.tar.gz", hash = "sha256:d4c6f9cf81f52d69230866796b82afbccdec3db7ae4fbd1b65ea750feed50037", size = 2471065, upload-time = "2025-05-29T11:35:07.804Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/eb/8d/776adee7bbf76365fdd7f2552710282c79a4ead5d2a46408c9043a2b70ba/networkx-3.5-py3-none-any.whl", hash = "sha256:0030d386a9a06dee3565298b4a734b68589749a544acbb6c412dc9e2489ec6ec", size = 2034406, upload-time = "2025-05-29T11:35:04.961Z" },
+]
+
+[[package]]
 name = "numpy"
 version = "2.3.4"
 source = { registry = "https://pypi.org/simple" }
@@ -854,6 +863,20 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/f8/73/f85056701dbbbb910c51d846c58d29fd46b30eecd2b6ba760fc8b8a1641b/numpy-2.3.4-cp314-cp314t-win32.whl", hash = "sha256:863e3b5f4d9915aaf1b8ec79ae560ad21f0b8d5e3adc31e73126491bb86dee1d", size = 6485782, upload-time = "2025-10-15T16:17:48.872Z" },
     { url = "https://files.pythonhosted.org/packages/17/90/28fa6f9865181cb817c2471ee65678afa8a7e2a1fb16141473d5fa6bacc3/numpy-2.3.4-cp314-cp314t-win_amd64.whl", hash = "sha256:962064de37b9aef801d33bc579690f8bfe6c5e70e29b61783f60bcba838a14d6", size = 13113301, upload-time = "2025-10-15T16:17:50.938Z" },
     { url = "https://files.pythonhosted.org/packages/54/23/08c002201a8e7e1f9afba93b97deceb813252d9cfd0d3351caed123dcf97/numpy-2.3.4-cp314-cp314t-win_arm64.whl", hash = "sha256:8b5a9a39c45d852b62693d9b3f3e0fe052541f804296ff401a72a1b60edafb29", size = 10547532, upload-time = "2025-10-15T16:17:53.48Z" },
+]
+
+[[package]]
+name = "nx-altair"
+version = "0.1.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "altair" },
+    { name = "networkx" },
+    { name = "pandas" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5e/6e/3a0777c9135d895d8f23223344b6218e7f291c01ff741461ace94ff25f0f/nx_altair-0.1.6.tar.gz", hash = "sha256:17c5ba760251fc17ab49e786e93c8820fcefbe1cb2f539886651265cbdb52c63", size = 8502, upload-time = "2020-06-02T21:11:13.179Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/61/01/6436e91bc44d0e65a40f46e99535def7ac02cabe34e7685c52b3e1f94e31/nx_altair-0.1.6-py3-none-any.whl", hash = "sha256:737c960598b405ed88882c3f1e9a0237ae4e5ba245380c8d0ec2c29fba9f1a38", size = 7890, upload-time = "2020-06-02T21:11:12.021Z" },
 ]
 
 [[package]]
@@ -1576,6 +1599,8 @@ source = { virtual = "." }
 dependencies = [
     { name = "ipykernel" },
     { name = "nbformat" },
+    { name = "networkx" },
+    { name = "nx-altair" },
     { name = "pandas" },
     { name = "pip" },
     { name = "plotly" },
@@ -1588,6 +1613,8 @@ dependencies = [
 requires-dist = [
     { name = "ipykernel", specifier = ">=7.0.1" },
     { name = "nbformat", specifier = ">=5.10.4" },
+    { name = "networkx", specifier = ">=3.5" },
+    { name = "nx-altair", specifier = ">=0.1.6" },
     { name = "pandas", specifier = ">=2.3.3" },
     { name = "pip", specifier = ">=25.2" },
     { name = "plotly", specifier = ">=6.3.1" },
