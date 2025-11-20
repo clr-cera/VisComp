@@ -30,8 +30,8 @@ def show_visualizations(grades_with_students, students, grades):
 
 
 def render_page():
-    st.title("General Visualizations")
-    st.write("This page contains general visualizations based on the academic records of the students from the Computer Science course in USP São Carlos.")
-    st.write("These visualizations should provide insights into overall trends and patterns in the academic performance and course selections of these students.")
+    st.title("Visualizações Gerais")
+    st.write("Esta página contém visualizações gerais baseadas nos históricos acadêmicos dos estudantes do curso de Ciências de Computação da USP São Carlos.")
+    st.write("Estas visualizações devem fornecer insights sobre tendências gerais e padrões no desempenho acadêmico e escolhas de disciplinas destes estudantes.")
     grades_with_students, students, grades = load_data()
     show_visualizations(grades_with_students, students, grades)

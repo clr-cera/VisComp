@@ -2,8 +2,8 @@ import streamlit as st
 import page_general
 
 def main_page():
-    st.title("Academic Record Visualization")
-    st.write("This application offer visualizations from the academic records of 5 students from the Computer Science course in USP São Carlos.")
+    st.title("Visualização de Histórico Acadêmico")
+    st.write("Esta aplicação oferece visualizações dos históricos acadêmicos de 5 estudantes do curso de Ciências de Computação da USP São Carlos.")
     left_co, cent_co,last_co = st.columns(3)
     with cent_co:
         st.image("https://icmc.usp.br/imprensa/default.jpg", width=400)
@@ -15,6 +15,6 @@ def main_page():
 if __name__ == "__main__":
 
     pages = [st.Page(main_page, title="Home"),
-             st.Page(page_general.render_page, title="General Visualizations")]
+             st.Page(page_general.render_page, title="Visualizações Gerais")]
     pg = st.navigation(pages, position='top')
     pg.run()
