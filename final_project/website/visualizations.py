@@ -194,7 +194,7 @@ def department_contribution_to_average(grades_with_students, students):
                 args=[
                     {"visible": visible},
                     {
-                        "title": f"Contribuição à Média por Departamento para Estudante {student}",
+                        "title": {"text": f"Contribuição à Média por Departamento para Estudante {student}"},
                         "xaxis.range": xaxis_range
                     }
                 ]
@@ -226,7 +226,7 @@ def department_contribution_to_average(grades_with_students, students):
                 borderwidth=1
             )
         ],
-        title=f"Contribuição à Média por Departamento para Estudante {students.index[0]}",
+    title={"text": f"Contribuição à Média por Departamento para Estudante {students.index[0]}"},
         xaxis_title="Semestre",
         yaxis_title="Média",
         hovermode='x unified'
