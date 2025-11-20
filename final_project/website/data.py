@@ -8,4 +8,4 @@ def load_data():
         IdEstudante=grades['student_id']
         )
     grades_with_students = grades.merge(students, on='IdEstudante', how='left')
-    return grades_with_students
+    return grades_with_students, students, grades
