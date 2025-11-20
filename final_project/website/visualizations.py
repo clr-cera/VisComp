@@ -243,20 +243,29 @@ def department_contribution_to_average(grades_with_students, students):
 def class_dependencies_network(dependencies_df,edge_list):
     G = nx.from_pandas_edgelist(edge_list, 'source', 'target', ['weight'])
     pos = nx.spring_layout(G, k=0.15, iterations=40, seed=42)
-    edge_x = []
-    edge_y = []
+    
+    # Create edge annotations with arrows
+    edge_annotations = []
     for edge in G.edges():
         x0, y0 = pos[edge[0]]
         x1, y1 = pos[edge[1]]
-        edge_x.append(x0)
-        edge_x.append(x1)
-        edge_x.append(None) # Separates segments
-        edge_y.append(y0)
-        edge_y.append(y1)
-        edge_y.append(None)
+        edge_annotations.append(
+            dict(
+                ax=x0, ay=y0,
+                axref='x', ayref='y',
+                x=x1, y=y1,
+                xref='x', yref='y',
+                showarrow=True,
+                arrowhead=2,
+                arrowsize=1,
+                arrowwidth=1.5,
+                arrowcolor='#888',
+                opacity=0.5
+            )
+        )
 
     edge_trace = go.Scatter(
-        x=edge_x, y=edge_y,
+        x=[], y=[],
         line=dict(width=0.5, color='#888'),
         hoverinfo='none',
         mode='lines')
@@ -295,6 +304,7 @@ def class_dependencies_network(dependencies_df,edge_list):
                         showlegend=False,
                         hovermode='closest',
                         margin=dict(b=20,l=5,r=5,t=40),
+                        annotations=edge_annotations,
                         xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
                         yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
                     )
