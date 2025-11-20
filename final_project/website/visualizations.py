@@ -1,6 +1,7 @@
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
+import networkx as nx
 
 def average_grade_per_department(grades_with_students):
 
@@ -236,4 +237,63 @@ def department_contribution_to_average(grades_with_students, students):
     if initial_xaxis_range:
         fig.update_xaxes(range=initial_xaxis_range)
     
+    return fig
+
+
+def class_dependencies_network(dependencies_df,edge_list):
+    G = nx.from_pandas_edgelist(edge_list, 'source', 'target', ['weight'])
+    pos = nx.spring_layout(G, k=0.15, iterations=35)
+    edge_x = []
+    edge_y = []
+    for edge in G.edges():
+        x0, y0 = pos[edge[0]]
+        x1, y1 = pos[edge[1]]
+        edge_x.append(x0)
+        edge_x.append(x1)
+        edge_x.append(None) # Separates segments
+        edge_y.append(y0)
+        edge_y.append(y1)
+        edge_y.append(None)
+
+    edge_trace = go.Scatter(
+        x=edge_x, y=edge_y,
+        line=dict(width=0.5, color='#888'),
+        hoverinfo='none',
+        mode='lines')
+
+    node_x = []
+    node_y = []
+    node_text = [] # For hover information
+    for node in G.nodes():
+        x, y = pos[node]
+        node_x.append(x)
+        node_y.append(y)
+        # Get hover text information from dependencies_df
+        hover_info = dependencies_df[dependencies_df['Code'] == node]
+        hover_text = f"Código: {node}<br>"
+        if not hover_info.empty:
+            hover_text += f"Nome: {hover_info.iloc[0]['Subject']}<br>"
+            hover_text += f"Tipo: {hover_info.iloc[0]['Type']}<br>"
+            hover_text += f"Objetivo: {hover_info.iloc[0]['Goal']}<br>"
+        node_text.append(hover_text)
+
+    node_trace = go.Scatter(
+        x=node_x, y=node_y,
+        mode='markers',
+        hoverinfo='text',
+        text=node_text,
+        marker=dict(
+            showscale=False,
+            size=10,
+            color='skyblue',
+            line_width=2))
+    fig = go.Figure(data=[edge_trace, node_trace],
+                    layout=go.Layout(
+                        title='Grafo de Dependência de Disciplinas',
+                        showlegend=False,
+                        hovermode='closest',
+                        margin=dict(b=20,l=5,r=5,t=40),
+                        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False))
+                    )
     return fig

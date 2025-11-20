@@ -1,4 +1,5 @@
 import streamlit as st
+import page_selection
 import page_general
 
 def main_page():
@@ -36,7 +37,8 @@ def authors_page():
 if __name__ == "__main__":
 
     pages = [st.Page(main_page, title="Home"),
-             st.Page(page_general.render_page, title="Visualizações Gerais"),
+             st.Page(page_general.render_page_general, title="Visualizações Gerais"),
+             st.Page(page_selection.render_page_selection, title="Visualizações de Dependências de Disciplinas"),
              st.Page(authors_page, title="Autores")
             ]
     pg = st.navigation(pages, position='top')

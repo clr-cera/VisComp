@@ -29,7 +29,7 @@ def show_visualizations(grades_with_students, students, grades):
     st.plotly_chart(dept_contribution)
 
 
-def render_page():
+def render_page_general():
     st.title("Visualizações Gerais")
     st.write("Esta página contém visualizações gerais baseadas nos históricos acadêmicos dos estudantes do curso de Ciências de Computação da USP São Carlos.")
     st.write("Estas visualizações devem fornecer insights sobre tendências gerais e padrões no desempenho acadêmico e escolhas de disciplinas destes estudantes.")
