@@ -299,29 +299,54 @@ def class_dependencies_network(dependencies_df,edge_list):
     unique_types = list(set(node_types))
     type_color_map = {t: px.colors.qualitative.Plotly[i % len(px.colors.qualitative.Plotly)] 
                       for i, t in enumerate(unique_types)}
-    type_colors = [type_color_map[t] for t in node_types]
     
     # For Semester
     unique_semesters = sorted(list(set(node_semesters)))
-    semester_color_map = {s: px.colors.qualitative.Safe[i % len(px.colors.qualitative.Safe)] 
-                          for i, s in enumerate(unique_semesters)}
-    semester_colors = [semester_color_map[s] for s in node_semesters]
+    unique_semesters = unique_semesters[1:] + unique_semesters[:1]
+    n_semesters = len(unique_semesters)
+    semester_colors = px.colors.sample_colorscale("Rdpu", [i/(n_semesters-1) if n_semesters > 1 else 0 for i in range(n_semesters)])
+    semester_color_map = {s: semester_colors[i] for i, s in enumerate(unique_semesters)}
 
-    node_trace = go.Scatter(
-        x=node_x, y=node_y,
-        mode='markers',
-        hoverinfo='text',
-        text=node_text,
-        marker=dict(
-            showscale=False,
-            size=10,
-            color=type_colors,
-            line_width=2))
-    
-    fig = go.Figure(data=[edge_trace, node_trace],
+    node_traces_types = []
+    for unique_type in unique_types:
+        indices = [i for i, t in enumerate(node_types) if t == unique_type]
+        node_trace_type = go.Scatter(
+            x=[node_x[i] for i in indices],
+            y=[node_y[i] for i in indices],
+            mode='markers',
+            hoverinfo='text',
+            text=[node_text[i] for i in indices],
+            marker=dict(
+                showscale=False,
+                size=10,
+                color=type_color_map[unique_type],
+                line_width=2),
+            name=unique_type
+        )
+        node_traces_types.append(node_trace_type)
+
+    node_traces_semester = []
+    for unique_semester in unique_semesters:
+        indices = [i for i, s in enumerate(node_semesters) if s == unique_semester]
+        node_trace_semester = go.Scatter(
+            x=[node_x[i] for i in indices],
+            y=[node_y[i] for i in indices],
+            mode='markers',
+            hoverinfo='text',
+            text=[node_text[i] for i in indices],
+            marker=dict(
+                size=10,
+                color=semester_color_map[unique_semester],
+                line_width=2),
+            name=f'{unique_semester}',
+            visible=False
+        )
+        node_traces_semester.append(node_trace_semester)
+
+    fig = go.Figure(data=[edge_trace] + node_traces_types + node_traces_semester,
                     layout=go.Layout(
                         title='Grafo de Dependência de Disciplinas',
-                        showlegend=False,
+                        showlegend=True,
                         hovermode='closest',
                         margin=dict(b=20,l=5,r=5,t=40),
                         annotations=edge_annotations,
@@ -338,12 +363,12 @@ def class_dependencies_network(dependencies_df,edge_list):
                 direction="left",
                 buttons=list([
                     dict(
-                        args=[{"marker.color": [type_colors]}],
+                        args=[{"visible": [True] + [True]*len(node_traces_types) + [False]*len(node_traces_semester)}],
                         label="Por Tipo",
                         method="restyle",
                     ),
                     dict(
-                        args=[{"marker.color": [semester_colors]}],
+                        args=[{"visible": [True] + [False]*len(node_traces_types) + [True]*len(node_traces_semester)}],
                         label="Por Semestre",
                         method="restyle",
                     )
