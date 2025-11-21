@@ -15,6 +15,8 @@ def show_visualizations(grades_with_students, students, grades, dependencies_df,
 
         department_count_fig = visualizations.department_count_per_point_selection(selected_codes)
         st.plotly_chart(department_count_fig)
+        semester_count_fig = visualizations.semester_count_per_point_selection(selected_codes, dependencies_df)
+        st.plotly_chart(semester_count_fig)
         
 def parse_selected_codes(selected):
     selected_codes = []

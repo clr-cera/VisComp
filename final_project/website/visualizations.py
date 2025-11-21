@@ -401,6 +401,27 @@ def department_count_per_point_selection(selected_codes: list[str]):
     sorted_keys = [item[0] for item in sorted_data]
     sorted_values = [item[1] for item in sorted_data]
     
-    fig = px.bar(x=sorted_keys, y=sorted_values, labels={'x':'Departamento', 'y':'Contagem de Disciplinas'}, title='Contagem de Disciplinas Selecionadas por Departamento', color=sorted_keys)
+    fig = px.bar(x=sorted_keys, y=sorted_values, labels={'x':'Departamento', 'y':'Contagem de Disciplinas'}, title='Contagem de Disciplinas selecionadas por Departamento', color=sorted_keys)
+    fig.update_xaxes(type='category')
+    return fig
+    
+def semester_count_per_point_selection(selected_codes: list[str], dependencies_df):
+    semester_count = {}
+    for code in selected_codes:
+        semester_info = dependencies_df[dependencies_df['Code'] == code]
+        if not semester_info.empty:
+            semester = semester_info.iloc[0]['Semester']
+            if semester in semester_count:
+                semester_count[semester] += 1
+            else:
+                semester_count[semester] = 1
+    sorted_semesters = sorted(semester_count.items())
+    if '10º Semestre Ideal' in semester_count.keys():
+        sorted_semesters.append(sorted_semesters.pop(0))
+    sorted_keys = [item[0] for item in sorted_semesters]
+    sorted_values = [item[1] for item in sorted_semesters]
+
+    
+    fig = px.bar(x=sorted_keys, y=sorted_values, labels={'x':'Semestre', 'y':'Contagem de Disciplinas'}, title='Contagem de Disciplinas selecionadas por Semestre', color=sorted_keys)
     fig.update_xaxes(type='category')
     return fig
