@@ -383,3 +383,24 @@ def class_dependencies_network(dependencies_df,edge_list):
     )
     
     return fig
+
+def department_count_per_point_selection(selected_codes: list[str]):
+    data = {'SME':0,'SMA':0,'SCC':0,'SSC':0,'760':0}
+    for code in selected_codes:
+        if code.startswith('SME'):
+            data['SME'] += 1
+        elif code.startswith('SMA'):
+            data['SMA'] += 1
+        elif code.startswith('SCC'):
+            data['SCC'] += 1
+        elif code.startswith('SSC'):
+            data['SSC'] += 1
+        elif code.startswith('760'):
+            data['760'] += 1
+    sorted_data = sorted(data.items())
+    sorted_keys = [item[0] for item in sorted_data]
+    sorted_values = [item[1] for item in sorted_data]
+    
+    fig = px.bar(x=sorted_keys, y=sorted_values, labels={'x':'Departamento', 'y':'Contagem de Disciplinas'}, title='Contagem de Disciplinas Selecionadas por Departamento', color=sorted_keys)
+    fig.update_xaxes(type='category')
+    return fig
