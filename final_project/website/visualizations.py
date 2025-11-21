@@ -425,3 +425,29 @@ def semester_count_per_point_selection(selected_codes: list[str], dependencies_d
     fig = px.bar(x=sorted_keys, y=sorted_values, labels={'x':'Semestre', 'y':'Contagem de Disciplinas'}, title='Contagem de Disciplinas selecionadas por Semestre', color=sorted_keys)
     fig.update_xaxes(type='category')
     return fig
+
+def average_grades_bar_plot_by_department_by_selection(selected_codes: list[str], grades_with_students):
+    # Get grade average per department for selected codes
+    filtered_df = grades_with_students[grades_with_students['Sigla'].isin(selected_codes)]
+    grades_avg = filtered_df.groupby('Departament', as_index=False)['NOTA'].mean()
+    fig = px.bar(grades_avg, x='Departament', y='NOTA', 
+                 title='Média de Notas por Departamento para Disciplinas Selecionadas',
+                 color='Departament',
+                 labels={'NOTA':'Média de Notas', 'Departament':'Departamento'},
+                 orientation='v',)
+    fig.update_xaxes(type='category')
+    return fig
+
+def average_grades_bar_plot_by_semester_by_selection(selected_codes: list[str], grades_with_students,dependencies_df):
+    # Get grade average per semester for selected codes
+    filtered_df = grades_with_students[grades_with_students['Sigla'].isin(selected_codes)]
+    filtered_df = filtered_df.merge(dependencies_df[['Code','Semester']], left_on='Sigla', right_on='Code', how='left')
+
+    grades_avg = filtered_df.groupby('Semester', as_index=False)['NOTA'].mean()
+    fig = px.bar(grades_avg, x='Semester', y='NOTA', 
+                 title='Média de Notas por Semestre para Disciplinas Selecionadas',
+                 color='Semester',
+                 labels={'NOTA':'Média de Notas', 'Semester':'Semestre'},
+                 orientation='v',)
+    fig.update_xaxes(type='category')
+    return fig

@@ -13,10 +13,17 @@ def show_visualizations(grades_with_students, students, grades, dependencies_df,
         st.subheader("Disciplinas Selecionadas")
         selected_codes = parse_selected_codes(selected)
 
+        st.write("Análises de contagem Disciplinas Selecionadas:")
         department_count_fig = visualizations.department_count_per_point_selection(selected_codes)
         st.plotly_chart(department_count_fig)
         semester_count_fig = visualizations.semester_count_per_point_selection(selected_codes, dependencies_df)
         st.plotly_chart(semester_count_fig)
+
+        st.write("Análises de notas nas Disciplinas Selecionadas:")
+        department_grade_fig = visualizations.average_grades_bar_plot_by_department_by_selection(selected_codes, grades_with_students)
+        st.plotly_chart(department_grade_fig)
+        semester_grade_fig = visualizations.average_grades_bar_plot_by_semester_by_selection(selected_codes, grades_with_students, dependencies_df)
+        st.plotly_chart(semester_grade_fig)
         
 def parse_selected_codes(selected):
     selected_codes = []
