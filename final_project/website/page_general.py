@@ -28,6 +28,9 @@ def show_visualizations(grades_with_students, students, grades):
     dept_contribution = visualizations.department_contribution_to_average(grades_with_students, students)
     st.plotly_chart(dept_contribution)
 
+    treemap_dept = visualizations.treemap_department_course_grades(grades_with_students)
+    st.plotly_chart(treemap_dept)
+
 
 def render_page_general():
     st.title("Visualizações Gerais")

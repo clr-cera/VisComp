@@ -239,6 +239,26 @@ def department_contribution_to_average(grades_with_students, students):
     
     return fig
 
+def treemap_department_course_grades(grades_with_students):
+    grp = grades_with_students.groupby(['Departament', 'Sigla','Nome'], as_index=False)['NOTA'].mean()
+    grp['All'] = 'Total'
+    
+    grp['NomeDisplay'] = grp['Nome'].fillna('').apply(lambda x: f"Nome: {x}" if x else 'Dept')
+    
+    fig = px.treemap(grp, path=['All', 'Departament', 'Sigla'], values='NOTA', 
+                     title='Visualização de nota agregada por Departamento e por Disciplina',
+                     branchvalues='total', maxdepth=2,
+                     custom_data=['NomeDisplay'])
+    
+    fig.update_traces(
+        root_color="lightgrey",
+        marker=dict(line=dict(width=2)),
+        tiling=dict(pad=3),
+        hovertemplate='<b>%{label}</b><br>NOTA: %{value:.2f}<br>%{customdata[0]}<extra></extra>'
+    )
+    
+    return fig
+
 
 def class_dependencies_network(dependencies_df,edge_list):
     G = nx.from_pandas_edgelist(edge_list, 'source', 'target', ['weight'])
