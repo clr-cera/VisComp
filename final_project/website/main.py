@@ -2,17 +2,36 @@ import streamlit as st
 import page_selection
 import page_general
 
+st.set_page_config(page_title="Visualização de Histórico Acadêmico", layout="centered")
+
+# Slightly widen the content area while keeping it centered
+st.markdown(
+    """
+    <style>
+        .block-container {
+            max-width: 1100px;
+            padding-top: 1.5rem;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 def main_page():
     st.title("Visualização de Histórico Acadêmico")
     st.write("Esta aplicação oferece visualizações dos históricos acadêmicos de 5 estudantes do curso de Ciências de Computação da USP São Carlos.")
-    left_co, cent_co,last_co = st.columns(3)
+    st.write("Use o Header superior para acessar as visualizações da página:")    
+    st.markdown(
+        """
+        - Home: introdução rápida da aplicação.
+        - Visualizações Gerais: gráficos com propósitos gerais utilizados no projeto.
+        - Visualizações com Seleção: Visualização da disciplinas e suas dependencias, com mecanismos de interação.
+        - Autores: conheça a equipe do projeto.
+        """
+    )
+    cent_co = st.columns(1)[0]
     with cent_co:
-        st.image("https://icmc.usp.br/imprensa/default.jpg", width=400)
-    with left_co:
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ferris_trans_flag_pride.jpg/500px-Ferris_trans_flag_pride.jpg", width=400)
-    with last_co:
-        st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Ferris_trans_flag_pride.jpg/500px-Ferris_trans_flag_pride.jpg", width=400)
-
+        st.image("https://icmc.usp.br/imprensa/default.jpg", width=800)
 
 def authors_page():
     st.title("Autores")
