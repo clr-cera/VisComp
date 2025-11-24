@@ -21,7 +21,9 @@ Os dados foram extraídos dos históricos acadêmicos de 5 estudantes e incluem 
 
 Assista ao vídeo do projeto:
 
-[**LINK DO VIDEO**](https://drive.google.com/file/d/1m2_7VkGdQVJqtpm683iHEhVCAOE1gXAe/view?usp=sharing)
+[**LINK DOs VIDEOs**]
+PARTE 1:
+https://drive.google.com/file/d/1m2_7VkGdQVJqtpm683iHEhVCAOE1gXAe/view?usp=sharing
 
-
-
+PARTE 2:
+https://drive.google.com/file/d/1C5N3cJse5XXISg6AaAgAOxTB7G5xCewl/view?usp=sharing
